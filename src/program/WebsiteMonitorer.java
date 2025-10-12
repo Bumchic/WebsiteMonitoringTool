@@ -3,12 +3,10 @@ import java.net.*;
 
 
 public class WebsiteMonitorer {
-	private InetAddress addr;
-	public WebsiteMonitorer(String address) throws UnknownHostException
+	private URL url;
+	public WebsiteMonitorer(String url) throws MalformedURLException
 	{
-		this.addr = InetAddress.getByName(address);
-		System.out.println(addr.getHostName());
-		
+		this.url = new URL(url);	
 	}
 //	public boolean CheckIfAlive()
 //	{
