@@ -39,6 +39,7 @@ public class Main {
 	}
 	private static void ProcessCommand(String command)
 	{
+		//Process command of user
 		String[] commandarr = command.split(" ");
 		switch(commandarr[0])
 		{
