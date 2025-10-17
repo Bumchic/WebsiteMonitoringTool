@@ -1,4 +1,4 @@
-package project;
+package program;
 
 import java.io.*;
 import java.net.*;
