@@ -16,11 +16,12 @@ public class WebServer {
 		try
 		{
 			addr = InetAddress.getByName("localhost");
-			server = new ServerSocket(8080, 50, addr);
+			server = new ServerSocket(6789, 50, addr);
 			serverfolder = Paths.get("C:\\Users\\Bumchic\\Documents\\GitHub\\WebsiteMonitoringTool\\index.html");
 			while(true)
 			{
 				Socket client = server.accept();
+				System.out.println(client.getPort());
 				clienthandler clienthandler = new clienthandler(client, serverfolder);
 				clienthandler.start();
 			}
@@ -37,10 +38,12 @@ class clienthandler extends Thread
 	PrintWriter writer;
 	BufferedReader reader;
 	Path serverfolder;
+	//WebsiteMonitorAdvanced monitor;
 	public clienthandler(Socket client, Path serverfolder)
 	{
 		this.client = client;
 		this.serverfolder = serverfolder;
+		//monitor = new WebsiteMonitorAdvanced("http://localhost:8080");
 		System.out.println("client connected");
 	}
 	public void run()
@@ -48,21 +51,6 @@ class clienthandler extends Thread
 		try {
 			writer = new PrintWriter(client.getOutputStream(), true);
 			reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
-			StringBuilder clientrequestbuilder = new StringBuilder();
-			String requestline= "";
-			while(!(requestline = reader.readLine()).isBlank())
-			{
-				clientrequestbuilder.append(requestline);
-				clientrequestbuilder.append("\r\n");
-			}
-			System.out.println(clientrequestbuilder.toString());
-			String[] splitrequest = clientrequestbuilder.toString().split("\r\n");
-			String[] basicrequest = splitrequest[0].split(" ");
-			String method = basicrequest[0];
-			String path = basicrequest[1];
-			String version = basicrequest[2];
-			String host = splitrequest[1].split(" ")[1];
-			System.out.println(host);
 			sendrespond();
 
 			
@@ -80,7 +68,6 @@ class clienthandler extends Thread
 		ArrayList<String> content = (ArrayList<String>)Files.readAllLines(serverfolder);
 		for(String s : content)
 		{
-			System.out.println(s);
 			respond.append(s + "\r\n");
 		}
 		respond.append("\r\n");

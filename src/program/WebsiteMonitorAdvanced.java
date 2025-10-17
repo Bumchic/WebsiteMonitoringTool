@@ -8,23 +8,19 @@ import java.util.concurrent.*;
 
 public class WebsiteMonitorAdvanced {
 
-    private static final List<String> WEBSITES = Arrays.asList(
-            "https://www.google.com",
-            "https://www.vnexpress.net",
-            "https://www.facebook.com",
-            "https://www.invalidwebsite.test"
-    );
-
+    private static List<String> WEBSITES;
    
     private static final ExecutorService executor = Executors.newFixedThreadPool(4);
 
     // Log file
     private static final String LOG_FILE = "monitor_log.txt";
 
-    public static void main(String[] args) {
+    public WebsiteMonitorAdvanced(String url){
         System.out.println("🚀 Advanced Website Monitoring Tool Started");
         System.out.println("-------------------------------------------");
-
+		WEBSITES = Arrays.asList(
+	            url
+	    );
       
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         scheduler.scheduleAtFixedRate(WebsiteMonitorAdvanced::checkAllWebsites, 0, 1, TimeUnit.MINUTES);
