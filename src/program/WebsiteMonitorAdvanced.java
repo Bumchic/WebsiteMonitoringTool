@@ -9,13 +9,14 @@ import java.util.concurrent.*;
 public class WebsiteMonitorAdvanced {
 
     private static List<String> WEBSITES;
-   
+    private static int clientcount;
     private static final ExecutorService executor = Executors.newFixedThreadPool(4);
 
     // Log file
     private static final String LOG_FILE = "monitor_log.txt";
 
     public WebsiteMonitorAdvanced(String url){
+    	clientcount = 0;
         System.out.println("🚀 Advanced Website Monitoring Tool Started");
         System.out.println("-------------------------------------------");
 		WEBSITES = Arrays.asList(
@@ -50,7 +51,7 @@ public class WebsiteMonitorAdvanced {
 
             String status;
             if (responseCode == 200) {
-                status = String.format("✅ %s is UP (%d ms)", siteUrl, responseTime);
+                status = String.format("✅ %s is UP (%d ms)\nCurrent client count is %d", siteUrl, responseTime, clientcount - 1);
             } else {
                 status = String.format("⚠️  %s returned HTTP %d (%d ms)", siteUrl, responseCode, responseTime);
             }
@@ -72,5 +73,13 @@ public class WebsiteMonitorAdvanced {
         } catch (IOException e) {
             System.err.println("Không ghi được log: " + e.getMessage());
         }
+    }
+    public static void IncreaseCount()
+    {
+    	clientcount++;
+    }
+    public static void DecreaseCount()
+    {
+    	clientcount--;
     }
 }

@@ -12176,3 +12176,28 @@
 [2025-10-17T21:30:37.918451800] ✅ http://localhost:8080 is UP (6 ms)
 [2025-10-17T21:30:37.920453400] ✅ http://localhost:8080 is UP (7 ms)
 [2025-10-17T21:30:37.922452600] ✅ http://localhost:8080 is UP (7 ms)
+[2025-10-21T12:30:48.075491600] ✅ http://localhost:6789 is UP (57 ms)
+[2025-10-21T12:31:47.954099200] ✅ http://localhost:6789 is UP (5 ms)
+[2025-10-21T12:32:47.950453100] ✅ http://localhost:6789 is UP (5 ms)
+[2025-10-21T12:33:47.946919900] ✅ http://localhost:6789 is UP (4 ms)
+[2025-10-21T12:34:47.949594600] ✅ http://localhost:6789 is UP (4 ms)
+[2025-10-21T12:35:47.953605300] ✅ http://localhost:6789 is UP (6 ms)
+[2025-10-21T12:36:47.949596600] ✅ http://localhost:6789 is UP (4 ms)
+[2025-10-21T13:13:47.912079300] ❌ http://localhost:6789 is DOWN (Read timed out)
+[2025-10-21T13:14:47.857510600] ❌ http://localhost:6789 is DOWN (Read timed out)
+[2025-10-21T13:15:47.850473100] ❌ http://localhost:6789 is DOWN (Read timed out)
+[2025-10-21T13:16:47.834987200] ❌ http://localhost:6789 is DOWN (Read timed out)
+[2025-10-21T13:17:47.845108400] ❌ http://localhost:6789 is DOWN (Read timed out)
+[2025-10-21T13:18:47.841696100] ❌ http://localhost:6789 is DOWN (Read timed out)
+[2025-10-21T13:31:43.736168200] ✅ http://localhost:6789 is UP (48 ms)
+[2025-10-21T13:32:37.925736400] ✅ http://localhost:6789 is UP (43 ms)
+[2025-10-21T13:49:43.082943300] ✅ http://localhost:6789 is UP (50 ms)
+ current client count is 1
+[2025-10-21T13:50:15.008815800] ✅ http://localhost:6789 is UP (42 ms)
+ current client count is 0
+[2025-10-21T13:50:23.879161300] ✅ http://localhost:6789 is UP (43 ms)
+Current client count is 0
+[2025-10-21T13:51:23.783682600] ✅ http://localhost:6789 is UP (6 ms)
+Current client count is 0
+[2025-10-21T13:52:23.772656600] ✅ http://localhost:6789 is UP (5 ms)
+Current client count is 0

@@ -13,16 +13,19 @@ public class WebServer {
 		ServerSocket server;
 		InetAddress addr;
 		Path serverfolder;
+		WebsiteMonitorAdvanced monitor;
 		try
 		{
 			addr = InetAddress.getByName("localhost");
 			server = new ServerSocket(6789, 50, addr);
+			monitor = new WebsiteMonitorAdvanced("http://localhost:6789");
 			serverfolder = Paths.get("C:\\Users\\Bumchic\\Documents\\GitHub\\WebsiteMonitoringTool\\index.html");
 			while(true)
 			{
 				Socket client = server.accept();
-				System.out.println(client.getPort());
-				clienthandler clienthandler = new clienthandler(client, serverfolder);
+				//System.out.println(client.getPort());
+				clienthandler clienthandler = new clienthandler(client, serverfolder, monitor);
+				monitor.IncreaseCount();
 				clienthandler.start();
 			}
 		}catch(Exception e)
@@ -35,15 +38,15 @@ public class WebServer {
 class clienthandler extends Thread
 {
 	private Socket client;
-	PrintWriter writer;
-	BufferedReader reader;
-	Path serverfolder;
-	//WebsiteMonitorAdvanced monitor;
-	public clienthandler(Socket client, Path serverfolder)
+	private PrintWriter writer;
+	private BufferedReader reader;
+	private Path serverfolder;
+	private WebsiteMonitorAdvanced monitor;
+	public clienthandler(Socket client, Path serverfolder, WebsiteMonitorAdvanced monitor)
 	{
 		this.client = client;
 		this.serverfolder = serverfolder;
-		//monitor = new WebsiteMonitorAdvanced("http://localhost:8080");
+		this.monitor = monitor;
 		System.out.println("client connected");
 	}
 	public void run()
@@ -51,12 +54,39 @@ class clienthandler extends Thread
 		try {
 			writer = new PrintWriter(client.getOutputStream(), true);
 			reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
-			sendrespond();
-
-			
+			Thread readthread = new Thread(() -> {
+				try {
+					readrequest();
+				}catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+			});
+			Thread sendthread = new Thread(() -> {
+				try {
+					sendrespond();
+				}catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+			});
+			readthread.start();
+			sendthread.start();
+			readthread.join();
+			sendthread.join();
+			monitor.DecreaseCount();
 		}catch(Exception e)
 		{
 			e.printStackTrace();
+		}
+	}
+	public void readrequest() throws Exception
+	{
+		String s;
+		while((s = reader.readLine()) != null)
+		{
+			String[] split = s.split(" ");
+			//System.out.println(s);
 		}
 	}
 	public void sendrespond() throws Exception
