@@ -9,10 +9,7 @@ import java.util.concurrent.*;
 public class WebsiteMonitorAdvanced {
 
     private static final List<String> WEBSITES = Arrays.asList(
-            "https://www.google.com",
-            "https://www.vnexpress.net",
-            "https://www.facebook.com",
-            "https://www.invalidwebsite.test"
+            "https://www.google.com"
     );
 
    
