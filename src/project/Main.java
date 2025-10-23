@@ -1,4 +1,4 @@
-package program;
+package project;
 import java.net.*;
 import java.util.Scanner;
 

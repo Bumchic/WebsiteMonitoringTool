@@ -30,6 +30,7 @@ public class WebsiteMonitorPro {
     private static final Map<String, Integer> errorCountMap = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
+    	EmailNotifier.sendAlert("gogle.com", 3, "Website failed " + 3 + " consecutive checks");
         System.out.println("🚀 WebsiteMonitorPro started");
         System.out.println("------------------------------------------");
 
