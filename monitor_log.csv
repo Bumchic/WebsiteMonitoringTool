@@ -8,3 +8,8 @@ Time,Website,StatusCode,ResponseTime(ms),Result,ErrorMessage
 "2025-10-23 15:08:41","https://www.google.com",200,805,"UP",""
 "2025-10-23 15:08:41","https://expired.badssl.com/",-1,0,"DOWN","SSL Error: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed"
 "2025-10-23 15:08:43","https://httpstat.us/500",-1,0,"DOWN","I/O Error: Unexpected end of file from server"
+"2025-10-23 20:38:00","https://www.abcdefgxyz1234.com",-1,0,"DOWN","DNS Error: www.abcdefgxyz1234.com"
+"2025-10-23 20:38:00","https://www.vnexpress.net",200,246,"UP",""
+"2025-10-23 20:38:01","https://www.google.com",200,481,"UP",""
+"2025-10-23 20:38:01","https://expired.badssl.com/",-1,0,"DOWN","SSL Error: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed"
+"2025-10-23 20:38:03","https://httpstat.us/404",-1,0,"DOWN","I/O Error: Unexpected end of file from server"
