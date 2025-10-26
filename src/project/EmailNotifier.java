@@ -5,9 +5,9 @@ import javax.mail.*;
 import javax.mail.internet.*;
 
 public class EmailNotifier {
-    private static final String Mail = "duonganhminh05@gmail.com";  // Gmail gửi cảnh báo
-    private static final String PASSWORD = "nnad gbmj wase myld";            // App password Gmail
-    private static final String TO_EMAIL = "duonganhminh05@gmail.com";  // Email nhận cảnh báo
+    private static final String Mail = "";  // Gmail gửi cảnh báo
+    private static final String PASSWORD = "";            // App password Gmail
+    private static final String TO_EMAIL = "";  // Email nhận cảnh báo
 
     // 👇 Hàm đúng với lời gọi trong WebsiteMonitorPro
     public static void sendAlert(String website, int failCount, String status) {

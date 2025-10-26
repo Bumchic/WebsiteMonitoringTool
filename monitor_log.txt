@@ -4370,3 +4370,4 @@
 [2025-10-17T09:03:44.794920600] ❌ https://www.google.com is DOWN (www.google.com)
 [2025-10-17T09:03:44.794920600] ❌ https://www.vnexpress.net is DOWN (www.vnexpress.net)
 [2025-10-17T09:03:44.795919600] ❌ https://www.facebook.com is DOWN (www.facebook.com)
+[2025-10-24T09:28:54.825483600] ❌ https://www.google.com is DOWN (www.google.com)
